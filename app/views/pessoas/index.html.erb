@@ -1,0 +1,39 @@
+<tr><td><%= link_to 'Cadastrar Usuário', new_pessoa_path %></td></tr></table>
+<br><center> <h2 id="notice"><%= notice %></h2></center>
+
+<h1>Cadastro de Pessoas</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cpf</th>
+      <th>Email</th>
+      <th>Data de Nascimento</th>
+      <th>Login</th>
+      <th>Perfil</th>
+      <th>Ativo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pessoas.each do |pessoa| %>
+      <tr>
+        <td><%= pessoa.nome %></td>
+        <td><%= pessoa.cpf %></td>
+        <td><%= pessoa.email %></td>
+        <td><%= pessoa.dataNascimento %></td>
+        <td><%= pessoa.login %></td>
+        <td><%= pessoa.perfil %></td>
+        <td><%= pessoa.ativo %></td>
+        <td><%= link_to 'Exibir', pessoa %></td>
+        <td><%= link_to 'Editar', edit_pessoa_path(pessoa) %></td>
+        <td><%= link_to 'Deletar', pessoa, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
